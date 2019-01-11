@@ -1,0 +1,20 @@
+{
+    "name": "amirreza/fun-rest-apis",
+    "description": "clients for some fun public apis",
+    "type": "project",
+    "license": "GPL2",
+    "authors": [
+        {
+            "name": "amirrezaask",
+            "email": "raskarpour@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "FunRest\\": "src/"
+        }
+    },
+    "require": {
+        "rmccue/requests": "^1.7"
+    }
+}
