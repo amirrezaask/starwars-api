@@ -1,6 +1,6 @@
 <?php
 
-namespace FunRest;
+namespace StarWars;
 
 class StarWars {
 
@@ -8,7 +8,7 @@ class StarWars {
 		$baseUrl = "https://swapi.co/api/";
 		$url = $baseUrl . $uri;
 		$resp = \Requests::get($url);
-		return json_encode($resp);
+		return $resp;
 	}
 	static function __callStatic(string $methodName, $arguments)
 	{

@@ -1,6 +1,6 @@
 {
-    "name": "amirreza/fun-rest-apis",
-    "description": "clients for some fun public apis",
+    "name": "amirreza/star-wars-api",
+    "description": "clients star wars public api",
     "type": "project",
     "license": "GPL2",
     "authors": [
@@ -11,11 +11,10 @@
     ],
     "autoload": {
         "psr-4": {
-            "FunRest\\": "src/"
+            "StarWars\\": "src/"
         }
     },
     "require": {
-        "rmccue/requests": "^1.7",
-        "symfony/serializer": "^4.2"
+        "rmccue/requests": "^1.7"
     }
 }
