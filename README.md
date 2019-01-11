@@ -14,7 +14,7 @@ use StarWars\StarWars;
 
 // Call methods in this format search{resourceName}By{Id|Name}
 // example:
-// searchFilmsById
-// searchPeopleByName
+StarWars::searchFilmsById(1)
+StarWars::searchPeopleByName("Luke SkyWalker")
 
 ```
