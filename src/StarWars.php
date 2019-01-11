@@ -10,31 +10,35 @@ class StarWars {
 		$resp = \Requests::get($url);
 		return json_encode($resp);
 	}
-
-	/**
-	 * gets all available data on this API
-	 *
-	 * @return string encoded json of response 
-	 */
-	static function getAllAvailData() {
-		return self::get();
+	static function __callStatic(string $methodName, $arguments)
+	{
+		if (count($arguments) != 1)
+		{
+			throw new \Exception("Wrong number of arguments");
+		}
+		// methodName would be like : searchPeopleById or searchFilmsByName
+		$nameSplitted = explode("By", $methodName);
+		$resourceName = strtolower(explode("search",$nameSplitted[0])[1]);
+		
+		if($nameSplitted[1] == "Id"){
+			return self::getResourceById($resourceName, $arguments[0]);
+		} elseif ($nameSplitted[1] == "Name") {
+			return self::searchResource($resourceName, $arguments[0]);
+		}
+		else {
+			throw new \Exception("Method not defined ");
+		}
 	}
-	/**
-	 * gets json schema of given resource name
-	 *
-	 * @param string $resource
-	 * @return void
-	 */
-	static function getSchema(string $resource)
+
+	protected static function getSchema(string $resource)
 	{
 		return self::get($resource . "/schema");
 	}
-
-	static function getResourceById(string $resource,int $id)
+	protected static function getResourceById(string $resource,int $id)
 	{
 		return self::get($resource . "/" . $id);
 	}
-	static function searchResource(string $resource, string $query)
+	protected static function searchResource(string $resource, string $query)
 	{
 		return self::get($resource . "/?search" . $query);
 	}
