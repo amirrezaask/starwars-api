@@ -15,6 +15,7 @@
         }
     },
     "require": {
-        "rmccue/requests": "^1.7"
+        "rmccue/requests": "^1.7",
+        "symfony/serializer": "^4.2"
     }
 }
